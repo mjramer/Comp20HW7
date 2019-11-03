@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Homework 7</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<script language="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body> 
+	<header>
+		<h2 style='padding:5px 5px;'>Homework 7 <br> Max Ramer <br> 11/5/19 <hr> </h2>
+	</header>
+	<script language="javascript" src="data.js"></script>
+	<script language="javascript">
+		document.write("<h3>Part 2: </h3>");
+		buildSonglistSerialized();
+		document.write("<br><h3>Part 3: </h3>");
+		buildSongListTable();
+	</script>
+	<br> <h3>Select a genre:</h3>
+	<form id="music">
+	  	<select name="genre" id="genre">
+	  	<option value="All">All</option>
+	    <option value="Pop">Pop</option>
+	    <option value="Rap">Rap</option>
+	    <option value="Rock">Rock</option>
+	    <option value="Jazz">Jazz</option>
+	    <option value="Folk">Folk</option>
+  		</select>
+  		<br><br>
+  		<button type="button" id="tableUpdate">Update</button>
+	</form>
+
+	<script language="javascript">
+		$(document).ready(function() {
+			$("#tableUpdate").click(function() {
+				for (i = 0; i < songList.length; i++) {
+					if ($("#genre").val() === "Pop") {
+						$(".Rock").hide();
+						$(".Rap").hide();
+						$(".Jazz").hide();
+						$(".Folk").hide();
+						$(".Pop").show();
+					}
+					else if ($("#genre").val() === "Rock") {
+						$(".Pop").hide();
+						$(".Rap").hide();
+						$(".Jazz").hide();
+						$(".Folk").hide();
+						$(".Rock").show();
+					}
+					else if ($("#genre").val() === "Rap") {
+						$(".Pop").hide();
+						$(".Rock").hide();
+						$(".Jazz").hide();
+						$(".Folk").hide();
+						$(".Rap").show();
+					}
+					else if ($("#genre").val() === "Jazz") {
+						$(".Pop").hide();
+						$(".Rap").hide();
+						$(".Rock").hide();
+						$(".Folk").hide();
+						$(".Jazz").show();
+					}
+					else if ($("#genre").val() === "Folk") {
+						$(".Pop").hide();
+						$(".Rap").hide();
+						$(".Rock").hide();
+						$(".Jazz").hide();
+						$(".Folk").show();
+					}
+					else {
+						$(".Pop").show();
+						$(".Rap").show();
+						$(".Rock").show();
+						$(".Jazz").show();
+						$(".Folk").show();
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>
